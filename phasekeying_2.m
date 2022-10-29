@@ -1,0 +1,27 @@
+clc
+clear all;
+close all;
+t=0:0.001:1;
+vm=2;
+vc=10;
+fm=2;
+fc=15;
+m=10;
+Sm=vm*cos(2*pi*fm*t);
+xlabel('Time');
+ylabel('Amplitude');
+subplot(3,1,1);
+plot(t,Sm);
+title('Message Signal');
+Sl=vc*cos(2*pi*fc*t);
+xlabel('Time');
+ylabel('Amplitude');
+subplot(3,1,2);
+plot(t,Sl);
+title('Carrier signal');
+spm=vc*cos((2*pi*fc*t) + m.*(vm*cos(2*pi*fm*t))); 
+subplot(3,1,3);
+xlabel('Time');
+ylabel('Amplitude');
+plot(t,spm);
+title('final signal');
